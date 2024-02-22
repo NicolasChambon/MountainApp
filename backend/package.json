@@ -1,0 +1,25 @@
+{
+  "name": "mountain-app",
+  "version": "1.0.0",
+  "description": "api on mountains across de world",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolasChambon/MountainApp.git"
+  },
+  "keywords": [
+    "mountain",
+    "api",
+    "practice",
+    "node"
+  ],
+  "author": "Nicolas Chambon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicolasChambon/MountainApp/issues"
+  },
+  "homepage": "https://github.com/NicolasChambon/MountainApp#readme"
+}
