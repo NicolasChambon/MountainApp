@@ -22,18 +22,19 @@ const Mountain = db.define('mountains', {
   altitude: {
     type: DataTypes.INTEGER
   },
-  typeId: {
+  mountain_type_id: {
     type: DataTypes.INTEGER
   },
-  countryId: {
+  country_id: {
     type: DataTypes.INTEGER
   },
-  regionId: {
+  region_id: {
     type: DataTypes.INTEGER
   }
 },{
   // Freeze Table Name
-  freezeTableName: true
+  freezeTableName: true,
+  timestamps: false // Disables createdAt and updatedAt
 });
  
 // Export model Mountain
