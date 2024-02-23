@@ -7,14 +7,14 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-DROP TABLE IF EXISTS `Countries`;
-CREATE TABLE `Countries` (
-  `CountryID` int NOT NULL AUTO_INCREMENT,
-  `CountryName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`CountryID`)
+DROP TABLE IF EXISTS `countries`;
+CREATE TABLE `countries` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `Countries` (`CountryID`, `CountryName`) VALUES
+INSERT INTO `countries` (`id`, `name`) VALUES
 (1,	'Nepal'),
 (2,	'France'),
 (3,	'Tanzania'),
@@ -29,15 +29,15 @@ INSERT INTO `Countries` (`CountryID`, `CountryName`) VALUES
 (12,	'Canada'),
 (13,	'China');
 
-DROP TABLE IF EXISTS `Fauna`;
-CREATE TABLE `Fauna` (
-  `FaunaID` int NOT NULL AUTO_INCREMENT,
-  `FaunaName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `Description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  PRIMARY KEY (`FaunaID`)
+DROP TABLE IF EXISTS `fauna`;
+CREATE TABLE `fauna` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `Fauna` (`FaunaID`, `FaunaName`, `Description`) VALUES
+INSERT INTO `fauna` (`id`, `name`, `description`) VALUES
 (1,	'Chamois',	'The chamois is a species of goat-antelope native to mountains in Europe'),
 (2,	'Marmot',	'The marmot is a large ground squirrel in the genus Marmota'),
 (3,	'Golden eagle',	'The golden eagle is one of the best-known birds of prey in the Northern Hemisphere'),
@@ -59,15 +59,15 @@ INSERT INTO `Fauna` (`FaunaID`, `FaunaName`, `Description`) VALUES
 (19,	'Frog',	'Frogs are a diverse and largely carnivorous group of short-bodied, tailless amphibians composing the order Anura'),
 (20,	'Bat',	'Bats are mammals of the order Chiroptera. With their forelimbs adapted as wings, they are the only mammals capable of true and sustained flight');
 
-DROP TABLE IF EXISTS `Flora`;
-CREATE TABLE `Flora` (
-  `FloraID` int NOT NULL AUTO_INCREMENT,
-  `FloraName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `Description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  PRIMARY KEY (`FloraID`)
+DROP TABLE IF EXISTS `flora`;
+CREATE TABLE `flora` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `Flora` (`FloraID`, `FloraName`, `Description`) VALUES
+INSERT INTO `flora` (`id`, `name`, `description`) VALUES
 (1,	'Edelweiss',	'Leontopodium alpinum, commonly called edelweiss, is a well-known mountain flower, belonging to the Asteraceae family'),
 (2,	'Gentian',	'Gentiana is a genus of flowering plants belonging to the gentian family Gentianaceae'),
 (3,	'Rhododendron',	'Rhododendron is a genus of 1,024 species of woody plants in the heath family'),
@@ -89,17 +89,16 @@ INSERT INTO `Flora` (`FloraID`, `FloraName`, `Description`) VALUES
 (19,	'Pasqueflower',	'Pulsatilla is a genus of about 33 species of herbaceous perennials native to meadows and prairies of North America, Europe, and Asia'),
 (20,	'Fireweed',	'Chamerion is a genus of the botanical family Onagraceae and includes the species known as willowherbs and fireweeds');
 
-DROP TABLE IF EXISTS `MountainFauna`;
-CREATE TABLE `MountainFauna` (
-  `MountainID` int NOT NULL,
-  `FaunaID` int NOT NULL,
-  PRIMARY KEY (`MountainID`,`FaunaID`),
-  KEY `FaunaID` (`FaunaID`),
-  CONSTRAINT `MountainFauna_ibfk_1` FOREIGN KEY (`MountainID`) REFERENCES `Mountains` (`MountainID`),
-  CONSTRAINT `MountainFauna_ibfk_2` FOREIGN KEY (`FaunaID`) REFERENCES `Fauna` (`FaunaID`)
+DROP TABLE IF EXISTS `mountain_fauna`;
+CREATE TABLE `mountain_fauna` (
+  `mountain_id` int NOT NULL,
+  `fauna_id` int NOT NULL,
+  PRIMARY KEY (`mountain_id`,`fauna_id`),
+  CONSTRAINT `mountain_fauna_ibfk_1` FOREIGN KEY (`mountain_id`) REFERENCES `mountains` (`id`),
+  CONSTRAINT `mountain_fauna_ibfk_2` FOREIGN KEY (`fauna_id`) REFERENCES `fauna` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `MountainFauna` (`MountainID`, `FaunaID`) VALUES
+INSERT INTO `mountain_fauna` (`mountain_id`, `fauna_id`) VALUES
 (1,	1),
 (2,	1),
 (3,	1),
@@ -131,17 +130,16 @@ INSERT INTO `MountainFauna` (`MountainID`, `FaunaID`) VALUES
 (2,	10),
 (3,	10);
 
-DROP TABLE IF EXISTS `MountainFlora`;
-CREATE TABLE `MountainFlora` (
-  `MountainID` int NOT NULL,
-  `FloraID` int NOT NULL,
-  PRIMARY KEY (`MountainID`,`FloraID`),
-  KEY `FloraID` (`FloraID`),
-  CONSTRAINT `MountainFlora_ibfk_1` FOREIGN KEY (`MountainID`) REFERENCES `Mountains` (`MountainID`),
-  CONSTRAINT `MountainFlora_ibfk_2` FOREIGN KEY (`FloraID`) REFERENCES `Flora` (`FloraID`)
+DROP TABLE IF EXISTS `mountain_flora`;
+CREATE TABLE `mountain_flora` (
+  `mountain_id` int NOT NULL,
+  `flora_id` int NOT NULL,
+  PRIMARY KEY (`mountain_id`,`flora_id`),
+  CONSTRAINT `mountain_flora_ibfk_1` FOREIGN KEY (`mountain_id`) REFERENCES `mountains` (`id`),
+  CONSTRAINT `mountain_flora_ibfk_2` FOREIGN KEY (`flora_id`) REFERENCES `flora` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `MountainFlora` (`MountainID`, `FloraID`) VALUES
+INSERT INTO `mountain_flora` (`mountain_id`, `flora_id`) VALUES
 (1,	1),
 (2,	1),
 (3,	1),
@@ -173,40 +171,40 @@ INSERT INTO `MountainFlora` (`MountainID`, `FloraID`) VALUES
 (2,	10),
 (3,	10);
 
-DROP TABLE IF EXISTS `MountainType`;
-CREATE TABLE `MountainType` (
-  `MountainTypeID` int NOT NULL AUTO_INCREMENT,
-  `TypeName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`MountainTypeID`)
+DROP TABLE IF EXISTS `mountain_type`;
+CREATE TABLE `mountain_type` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `MountainType` (`MountainTypeID`, `TypeName`) VALUES
+INSERT INTO `mountain_type` (`id`, `name`) VALUES
 (1,	'Peak'),
 (2,	'Massif'),
 (3,	'Volcano'),
 (4,	'Rocky peak'),
 (5,	'Rock wall');
 
-DROP TABLE IF EXISTS `Mountains`;
-CREATE TABLE `Mountains` (
-  `MountainID` int NOT NULL AUTO_INCREMENT,
-  `MountainName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `Latitude` decimal(9,6) DEFAULT NULL,
-  `Longitude` decimal(9,6) DEFAULT NULL,
-  `Altitude` int DEFAULT NULL,
-  `MountainTypeID` int DEFAULT NULL,
-  `CountryID` int DEFAULT NULL,
-  `RegionID` int DEFAULT NULL,
-  PRIMARY KEY (`MountainID`),
-  KEY `MountainTypeID` (`MountainTypeID`),
-  KEY `CountryID` (`CountryID`),
-  KEY `RegionID` (`RegionID`),
-  CONSTRAINT `FK_Countries` FOREIGN KEY (`CountryID`) REFERENCES `Countries` (`CountryID`),
-  CONSTRAINT `FK_MountainType` FOREIGN KEY (`MountainTypeID`) REFERENCES `MountainType` (`MountainTypeID`),
-  CONSTRAINT `FK_Regions` FOREIGN KEY (`RegionID`) REFERENCES `Regions` (`RegionID`)
+DROP TABLE IF EXISTS `mountains`;
+CREATE TABLE `mountains` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `latitude` decimal(9,6) DEFAULT NULL,
+  `longitude` decimal(9,6) DEFAULT NULL,
+  `altitude` int DEFAULT NULL,
+  `mountain_type_id` int DEFAULT NULL,
+  `country_id` int DEFAULT NULL,
+  `region_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `mountain_type_id` (`mountain_type_id`),
+  KEY `country_id` (`country_id`),
+  KEY `region_id` (`region_id`),
+  CONSTRAINT `FK_Countries` FOREIGN KEY (`country_id`) REFERENCES `countries` (`id`),
+  CONSTRAINT `FK_MountainType` FOREIGN KEY (`mountain_type_id`) REFERENCES `mountain_type` (`id`),
+  CONSTRAINT `FK_Regions` FOREIGN KEY (`region_id`) REFERENCES `regions` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `Mountains` (`MountainID`, `MountainName`, `Latitude`, `Longitude`, `Altitude`, `MountainTypeID`, `CountryID`, `RegionID`) VALUES
+INSERT INTO `mountains` (`id`, `name`, `latitude`, `longitude`, `altitude`, `mountain_type_id`, `country_id`, `region_id`) VALUES
 (1,	'Mount Everest',	27.988100,	86.925000,	8848,	1,	1,	1),
 (2,	'Mont Blanc',	45.832500,	6.865100,	4808,	2,	2,	2),
 (3,	'Mount Kilimanjaro',	-3.067400,	37.355600,	5895,	3,	3,	3),
@@ -230,14 +228,14 @@ INSERT INTO `Mountains` (`MountainID`, `MountainName`, `Latitude`, `Longitude`, 
 (21,	'Gasherbrum III',	35.757300,	76.625300,	7952,	1,	4,	4),
 (22,	'Gasherbrum IV',	35.809700,	76.570600,	7925,	1,	4,	4);
 
-DROP TABLE IF EXISTS `Regions`;
-CREATE TABLE `Regions` (
-  `RegionID` int NOT NULL AUTO_INCREMENT,
-  `RegionName` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`RegionID`)
+DROP TABLE IF EXISTS `regions`;
+CREATE TABLE `regions` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `Regions` (`RegionID`, `RegionName`) VALUES
+INSERT INTO `regions` (`id`, `name`) VALUES
 (1,	'Himalayas'),
 (2,	'Alps'),
 (3,	'East Africa'),
