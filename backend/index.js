@@ -1,4 +1,4 @@
-// Import express
+// Import express framework
 import express from "express";
 
 // Import cors
@@ -10,7 +10,7 @@ import db from "./config/database.js";
 // Import router
 import Router from "./routes/routes.js";
 
-// Init express
+// Init express (Creation of an Express application instance)
 const app = express();
 
 // use express json

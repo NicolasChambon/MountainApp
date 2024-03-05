@@ -105,6 +105,7 @@ CREATE TABLE `mountains` (
   `typeId` int DEFAULT NULL,
   `countryId` int DEFAULT NULL,
   `regionId` int DEFAULT NULL,
+  `picture` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `createdAt` date DEFAULT NULL,
   `updatedAt` date DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -116,29 +117,27 @@ CREATE TABLE `mountains` (
   CONSTRAINT `mountains_ibfk_4` FOREIGN KEY (`regionId`) REFERENCES `regions` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `mountains` (`id`, `name`, `latitude`, `longitude`, `altitude`, `typeId`, `countryId`, `regionId`, `createdAt`, `updatedAt`) VALUES
-(1,	'Mount Everest',	27.988100,	86.925000,	8848,	1,	1,	1,	NULL,	NULL),
-(2,	'Mont Blanc',	45.832500,	6.865100,	4808,	2,	2,	2,	NULL,	NULL),
-(3,	'Mount Kilimanjaro',	-3.067400,	37.355600,	5895,	3,	3,	3,	NULL,	NULL),
-(4,	'K2',	35.881400,	76.513300,	8611,	1,	4,	4,	NULL,	NULL),
-(5,	'Matterhorn',	45.976400,	7.658400,	4478,	4,	5,	2,	NULL,	NULL),
-(6,	'Aconcagua',	-32.653500,	-70.011400,	6962,	1,	6,	5,	NULL,	NULL),
-(7,	'Denali',	63.069500,	-151.007000,	6190,	1,	7,	6,	NULL,	NULL),
-(8,	'Mount Elbrus',	43.359400,	42.439600,	5642,	3,	8,	7,	NULL,	NULL),
-(9,	'Mount McKinley',	63.069500,	-151.007000,	6190,	1,	7,	6,	NULL,	NULL),
-(10,	'Mount Fuji',	35.360600,	138.727400,	3776,	3,	9,	8,	NULL,	NULL),
-(11,	'Mount Cook',	-43.595000,	170.141900,	3724,	2,	10,	9,	NULL,	NULL),
-(12,	'Kangchenjunga',	27.702500,	88.146900,	8586,	1,	1,	1,	NULL,	NULL),
-(13,	'Vinson Massif',	-78.525700,	-85.617400,	4892,	2,	11,	10,	NULL,	NULL),
-(14,	'Mount Logan',	60.567500,	-140.405800,	5959,	1,	12,	11,	NULL,	NULL),
-(15,	'Lhotse',	27.961400,	86.933400,	8516,	1,	1,	1,	NULL,	NULL),
-(16,	'Shishapangma',	28.353900,	85.778700,	8027,	1,	13,	12,	NULL,	NULL),
-(17,	'K2',	35.881400,	76.513300,	8611,	1,	4,	4,	NULL,	NULL),
-(18,	'Gasherbrum I',	35.721000,	76.696700,	8080,	1,	4,	4,	NULL,	NULL),
-(19,	'Gasherbrum II',	35.757500,	76.659000,	8035,	1,	4,	4,	NULL,	NULL),
-(20,	'Broad Peak',	35.809500,	76.568100,	8051,	1,	4,	4,	NULL,	NULL),
-(21,	'Gasherbrum III',	35.757300,	76.625300,	7952,	1,	4,	4,	NULL,	NULL),
-(22,	'Gasherbrum IV',	35.809700,	76.570600,	7925,	1,	4,	4,	NULL,	NULL);
+INSERT INTO `mountains` (`id`, `name`, `latitude`, `longitude`, `altitude`, `typeId`, `countryId`, `regionId`, `picture`, `createdAt`, `updatedAt`) VALUES
+(1,	'Mount Everest',	27.988100,	86.925000,	8848,	1,	1,	1,	'f/f0/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006_edit_1.jpg/1280px-Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006_edit_1.jpg',	NULL,	NULL),
+(2,	'Mont Blanc',	45.832500,	6.865100,	4808,	2,	2,	2,	'4/4b/Mont_Blanc_depuis_Valmorel_2.jpg/1280px-Mont_Blanc_depuis_Valmorel_2.jpg',	NULL,	NULL),
+(3,	'Mount Kilimanjaro',	-3.067400,	37.355600,	5895,	3,	3,	3,	'9/91/Mount_Kilimanjaro.jpg/1920px-Mount_Kilimanjaro.jpg',	NULL,	NULL),
+(4,	'K2',	35.881400,	76.513300,	8611,	1,	4,	4,	'8/8c/K2%2C_Mount_Godwin_Austen%2C_Chogori%2C_Savage_Mountain.jpg/1280px-K2%2C_Mount_Godwin_Austen%2C_Chogori%2C_Savage_Mountain.jpg',	NULL,	NULL),
+(5,	'Matterhorn',	45.976400,	7.658400,	4478,	4,	5,	2,	'a/a5/Matterhorn_as_seen_from_Zermatt%2C_Wallis%2C_Switzerland%2C_2012_August.jpg/1280px-Matterhorn_as_seen_from_Zermatt%2C_Wallis%2C_Switzerland%2C_2012_August.jpg',	NULL,	NULL),
+(6,	'Aconcagua',	-32.653500,	-70.011400,	6962,	1,	6,	5,	'c/c8/Aconcagua_13.JPG/1280px-Aconcagua_13.JPG',	NULL,	NULL),
+(7,	'Denali',	63.069500,	-151.007000,	6190,	1,	7,	6,	'9/91/Wonder_Lake_and_Denali.jpg/1280px-Wonder_Lake_and_Denali.jpg',	NULL,	NULL),
+(8,	'Mount Elbrus',	43.359400,	42.439600,	5642,	3,	8,	7,	'c/c7/Mount_Elbrus_May_2008.jpg/1280px-Mount_Elbrus_May_2008.jpg',	NULL,	NULL),
+(10,	'Mount Fuji',	35.360600,	138.727400,	3776,	3,	9,	8,	'c/cd/Fuji_Kawaguchi_357.JPG/1280px-Fuji_Kawaguchi_357.JPG',	NULL,	NULL),
+(11,	'Mount Cook',	-43.595000,	170.141900,	3724,	2,	10,	9,	'b/bf/Aoraki_Mount_Cook.JPG/800px-Aoraki_Mount_Cook.JPG',	NULL,	NULL),
+(12,	'Kangchenjunga',	27.702500,	88.146900,	8586,	1,	1,	1,	'6/66/Kangchenjunga-from-Gangtok.jpg/1280px-Kangchenjunga-from-Gangtok.jpg',	NULL,	NULL),
+(13,	'Vinson Massif',	-78.525700,	-85.617400,	4892,	2,	11,	10,	'c/c6/Mount_Vinson_from_NW_at_Vinson_Plateau_by_Christian_Stangl_%28flickr%29.jpg/1280px-Mount_Vinson_from_NW_at_Vinson_Plateau_by_Christian_Stangl_%28flickr%29.jpg',	NULL,	NULL),
+(14,	'Mount Logan',	60.567500,	-140.405800,	5959,	1,	12,	11,	'4/4a/Mount_Logan.jpg',	NULL,	NULL),
+(15,	'Lhotse',	27.961400,	86.933400,	8516,	1,	1,	1,	'e/e5/Lhotse.jpg/1280px-Lhotse.jpg',	NULL,	NULL),
+(16,	'Shishapangma',	28.353900,	85.778700,	8027,	1,	13,	12,	'e/e9/Shishapangma.jpg',	NULL,	NULL),
+(18,	'Gasherbrum I',	35.721000,	76.696700,	8080,	1,	4,	4,	'6/6f/HiddenPeak.jpg',	NULL,	NULL),
+(19,	'Gasherbrum II',	35.757500,	76.659000,	8035,	1,	4,	4,	'3/37/Gasherbrum2.jpg',	NULL,	NULL),
+(20,	'Broad Peak',	35.809500,	76.568100,	8051,	1,	4,	4,	'5/5b/7_15_BroadPeak.jpg',	NULL,	NULL),
+(21,	'Gasherbrum III',	35.757300,	76.625300,	7952,	1,	4,	4,	'3/37/Gasherbrum2.jpg',	NULL,	NULL),
+(22,	'Gasherbrum IV',	35.809700,	76.570600,	7925,	1,	4,	4,	'0/0c/Gasherbrum_IV.JPG/800px-Gasherbrum_IV.JPG',	NULL,	NULL);
 
 DROP TABLE IF EXISTS `mountains_faunas`;
 CREATE TABLE `mountains_faunas` (
@@ -264,4 +263,4 @@ INSERT INTO `types` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
 (4,	'Rocky peak',	NULL,	NULL),
 (5,	'Rock wall',	NULL,	NULL);
 
--- 2024-02-22 23:05:30
+-- 2024-02-25 22:32:56
