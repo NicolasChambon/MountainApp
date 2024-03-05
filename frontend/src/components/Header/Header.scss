@@ -1,0 +1,23 @@
+@use "../../styles/variables" as v;
+
+.Header {
+  &-nav {
+    align-items: center;
+    background-color: v.$darkColor;
+    display: flex;
+    gap: 2rem;
+    padding: 0.3rem 2rem;
+
+    &-logo {
+      max-width: 3.5rem;
+    }
+
+    &-sections {
+      color: v.$lightColor;
+      display: flex;
+      font-size: 1.3rem;
+      font-weight: 500;
+      gap: 2rem;
+    }
+  }
+}
