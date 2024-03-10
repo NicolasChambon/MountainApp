@@ -19,5 +19,11 @@
       font-weight: 500;
       gap: 2rem;
     }
+
+    &-section {
+      &:hover {
+        text-shadow: 0px 0px 20px v.$lightColor;
+      }
+    }
   }
 }

@@ -20,22 +20,22 @@ function Header() {
               Mountains
             </a>
           </li>
-          <li>
+          <li className="Header-nav-section">
             <a className="Header-nav-link" href="">
               Faunas
             </a>
           </li>
-          <li>
+          <li className="Header-nav-section">
             <a className="Header-nav-link" href="">
               Floras
             </a>
           </li>
-          <li>
+          <li className="Header-nav-section">
             <a className="Header-nav-link" href="">
               Regions
             </a>
           </li>
-          <li>
+          <li className="Header-nav-section">
             <a className="Header-nav-link" href="">
               Map
             </a>
