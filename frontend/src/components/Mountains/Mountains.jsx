@@ -1,11 +1,21 @@
+import { useSelector } from "react-redux";
+
 import Mountain from "../Mountain/Mountain";
 
 import "./Mountains.scss";
 
 function Mountains() {
+  const mountains = useSelector((state) => state.mountainData);
+  console.log(mountains);
   return (
     <div className="Mountains">
-      <Mountain />
+      {mountains.map((mountain) => (
+        <Mountain
+          imgLink={mountain.picture}
+          title={mountain.name}
+          key={mountain.id}
+        />
+      ))}
     </div>
   );
 }

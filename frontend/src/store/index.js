@@ -8,11 +8,6 @@ import middleware from "../middleware/middleware";
 
 const enhancer = composeWithDevTools(applyMiddleware(middleware));
 
-const store = createStore(
-  // reducer
-  reducer,
-  // enhancer
-  enhancer
-);
+const store = createStore(reducer, enhancer);
 
 export default store;

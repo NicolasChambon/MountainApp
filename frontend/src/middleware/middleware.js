@@ -1,28 +1,22 @@
-// import {
-//   LOAD_RECIPES_LIST,
-//   handleFetchRecipes,
-//   toogleLoading,
-// } from "../actions/recipes";
+import { LOAD_MOUNTAIN_DATA, handleFetchMountain } from "../actions/actions";
 
 const middleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case LOAD_RECIPES_LIST: {
-      fetch("http://localhost:3001/recipes")
+    case LOAD_MOUNTAIN_DATA: {
+      fetch("http://localhost:5000/api/mountains")
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
           return response.json();
         })
-        .then((data) => {
-          store.dispatch(handleFetchRecipes(data));
+        .then((mountainData) => {
+          store.dispatch(handleFetchMountain(mountainData));
         })
         .catch((error) => {
           console.error("There was an error with your fetch operation:", error);
         })
-        .finally(() => {
-          store.dispatch(toogleLoading());
-        });
+        .finally(() => {});
       break;
     }
     default:

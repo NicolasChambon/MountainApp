@@ -1,16 +1,11 @@
-// export const LOAD_RECIPES_LIST = 'LOAD_RECIPES_LIST';
-// export const HANDLE_FETCH_RECIPES = 'HANDLE_FETCH_RECIPES';
-// export const TOOGLE_LOADING = 'TOOGLE_LOADING';
+export const LOAD_MOUNTAIN_DATA = "LOAD_MOUNTAIN_DATA";
+export const HANDLE_FETCH_MOUNTAIN = "HANDLE_FETCH_MOUNTAIN";
 
-// export const loadRecipesList = () => ({
-//   type: LOAD_RECIPES_LIST,
-// });
+export const loadMountainData = () => ({
+  type: LOAD_MOUNTAIN_DATA,
+});
 
-// export const handleFetchRecipes = (list) => ({
-//   type: HANDLE_FETCH_RECIPES,
-//   list,
-// });
-
-// export const toogleLoading = () => ({
-//   type: TOOGLE_LOADING,
-// });
+export const handleFetchMountain = (mountainData) => ({
+  type: HANDLE_FETCH_MOUNTAIN,
+  mountainData,
+});
