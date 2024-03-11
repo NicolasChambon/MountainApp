@@ -6,7 +6,6 @@ import "./Mountains.scss";
 
 function Mountains() {
   const mountains = useSelector((state) => state.mountainData);
-  console.log(mountains);
   return (
     <div className="Mountains">
       {mountains.map((mountain) => (

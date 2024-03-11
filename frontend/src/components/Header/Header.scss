@@ -1,6 +1,10 @@
 @use "../../styles/variables" as v;
 
 .Header {
+  left: 0;
+  position: fixed;
+  right: 0;
+
   &-nav {
     align-items: center;
     background-color: v.$darkColor;
