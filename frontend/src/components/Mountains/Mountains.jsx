@@ -10,9 +10,11 @@ function Mountains() {
     <div className="Mountains">
       {mountains.map((mountain) => (
         <Mountain
+          key={mountain.id}
           imgLink={mountain.picture}
           title={mountain.name}
-          key={mountain.id}
+          region={mountain.region.name}
+          country={mountain.country.name}
         />
       ))}
     </div>

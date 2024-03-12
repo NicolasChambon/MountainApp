@@ -19,6 +19,13 @@
   &-name {
     font-size: 1.1rem;
     font-weight: 500;
+    margin-bottom: 0.5rem;
     text-align: center;
+  }
+
+  &-country,
+  &-region {
+    margin-bottom: 0.5rem;
+    padding: 0 0.5rem;
   }
 }

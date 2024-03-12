@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import "./Mountain.scss";
 
-function Mountain({ imgLink, title }) {
+function Mountain({ imgLink, title, region, country }) {
   return (
     <div className="Mountain">
       <div className="Mountain-picture-container">
@@ -13,6 +13,8 @@ function Mountain({ imgLink, title }) {
         />
       </div>
       <p className="Mountain-name">{title}</p>
+      <p className="Mountain-region">Region : {region}</p>
+      <p className="Mountain-country">Country : {country}</p>
     </div>
   );
 }
@@ -20,6 +22,8 @@ function Mountain({ imgLink, title }) {
 Mountain.propTypes = {
   imgLink: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  region: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
 };
 
 export default Mountain;
