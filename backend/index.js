@@ -1,3 +1,5 @@
+// index.js
+
 // Import express framework
 import express from "express";
 
@@ -19,16 +21,16 @@ app.use(express.json());
 // use cors
 app.use(cors());
 
-// Testing database connection 
+// Testing database connection
 try {
-    await db.authenticate();
-    console.log('Connection has been established successfully.');
+  await db.authenticate();
+  console.log("Connection has been established successfully.");
 } catch (error) {
-    console.error('Unable to connect to the database:', error);
+  console.error("Unable to connect to the database:", error);
 }
 
 // use router
 app.use(Router);
 
 // listen on port
-app.listen(5000, () => console.log('Server running at http://localhost:5000'));
+app.listen(5000, () => console.log("Server running at http://localhost:5000"));

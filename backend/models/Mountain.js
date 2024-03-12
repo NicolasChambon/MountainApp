@@ -1,17 +1,11 @@
-// import sequelize
-import { Sequelize } from "sequelize";
+// /models/Mountain.js
 
-// import connection
+import { Sequelize, DataTypes } from "sequelize";
 import db from "../config/database.js";
 
-// init DataTypes
-const { DataTypes } = Sequelize;
-
-// Define schema
 const Mountain = db.define(
   "mountains",
   {
-    // Define attributes
     name: {
       type: DataTypes.STRING,
     },
@@ -38,10 +32,13 @@ const Mountain = db.define(
     },
   },
   {
-    // Freeze Table Name
     freezeTableName: true,
   }
 );
 
-// Export model Mountain
+import("./Country.js").then((module) => {
+  const Country = module.default;
+  Mountain.belongsTo(Country);
+});
+
 export default Mountain;

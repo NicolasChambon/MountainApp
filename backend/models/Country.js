@@ -1,21 +1,23 @@
-import { Sequelize } from "sequelize";
+import Mountain from "../models/Mountain.js";
 
-// import connection 
+import { Sequelize, DataTypes } from "sequelize";
 import db from "../config/database.js";
 
-// init DataTypes
-const { DataTypes } = Sequelize;
-
-// Define schema
-const Country = db.define('countries', {
-  // Define attributes
-  name: {
-    type: DataTypes.STRING
+const Country = db.define(
+  "countries",
+  {
+    // Define attributes
+    name: {
+      type: DataTypes.STRING,
+    },
+  },
+  {
+    // Freeze Table Name
+    freezeTableName: true,
   }
-},{
-  // Freeze Table Name
-  freezeTableName: true
-});
- 
+);
+
+// Country.hasMany(Mountain);
+
 // Export model Country
 export default Country;
