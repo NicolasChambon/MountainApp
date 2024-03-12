@@ -41,4 +41,9 @@ import("./Country.js").then((module) => {
   Mountain.belongsTo(Country);
 });
 
+import("./Region.js").then((module) => {
+  const Region = module.default;
+  Mountain.belongsTo(Region);
+});
+
 export default Mountain;

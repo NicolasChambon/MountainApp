@@ -2,11 +2,14 @@
 
 import Mountain from "../models/Mountain.js";
 import Country from "../models/Country.js";
+import Region from "../models/Region.js";
 
 // Get all mountains
 export const getMountains = async (req, res) => {
   try {
-    const mountain = await Mountain.findAll({ include: Country });
+    const mountain = await Mountain.findAll({
+      include: [Country, Region],
+    });
     res.send(mountain);
   } catch (err) {
     console.log(err);
