@@ -1,15 +1,15 @@
-import { HANDLE_FETCH_MOUNTAIN } from "../actions/actions";
+import { FETCH_MOUNTAINS_SUCCESS } from "../actions/actions";
 
 export const initialState = {
-  mountainData: [],
+  mountains: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case HANDLE_FETCH_MOUNTAIN:
+    case FETCH_MOUNTAINS_SUCCESS:
       return {
         ...state,
-        mountainData: action.mountainData,
+        mountains: action.mountains,
       };
     default:
       return state;

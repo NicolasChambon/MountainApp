@@ -1,8 +1,8 @@
-import { LOAD_MOUNTAIN_DATA, handleFetchMountain } from "../actions/actions";
+import { FETCH_MOUNTAINS, fetchMountainsSuccess } from "../actions/actions";
 
 const middleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case LOAD_MOUNTAIN_DATA: {
+    case FETCH_MOUNTAINS: {
       fetch("http://localhost:5000/api/mountains")
         .then((response) => {
           if (!response.ok) {
@@ -10,8 +10,8 @@ const middleware = (store) => (next) => (action) => {
           }
           return response.json();
         })
-        .then((mountainData) => {
-          store.dispatch(handleFetchMountain(mountainData));
+        .then((mountains) => {
+          store.dispatch(fetchMountainsSuccess(mountains));
         })
         .catch((error) => {
           console.error("There was an error with your fetch operation:", error);

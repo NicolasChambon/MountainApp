@@ -1,11 +1,11 @@
-export const LOAD_MOUNTAIN_DATA = "LOAD_MOUNTAIN_DATA";
-export const HANDLE_FETCH_MOUNTAIN = "HANDLE_FETCH_MOUNTAIN";
+export const FETCH_MOUNTAINS = "FETCH_MOUNTAINS";
+export const FETCH_MOUNTAINS_SUCCESS = "FETCH_MOUNTAINS_SUCCESS";
 
-export const loadMountainData = () => ({
-  type: LOAD_MOUNTAIN_DATA,
+export const fetchMountains = () => ({
+  type: FETCH_MOUNTAINS,
 });
 
-export const handleFetchMountain = (mountainData) => ({
-  type: HANDLE_FETCH_MOUNTAIN,
-  mountainData,
+export const fetchMountainsSuccess = (mountains) => ({
+  type: FETCH_MOUNTAINS_SUCCESS,
+  mountains,
 });

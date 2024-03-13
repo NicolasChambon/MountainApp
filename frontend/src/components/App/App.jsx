@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { loadMountainData } from "../../actions/actions";
+import { fetchMountains } from "../../actions/actions";
 
 import Header from "../Header/Header";
 import Mountains from "../Mountains/Mountains";
@@ -12,7 +12,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadMountainData());
+    dispatch(fetchMountains());
   }, []);
 
   return (

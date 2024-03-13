@@ -1,5 +1,10 @@
+@use "../../styles/variables" as v;
+
 .Mountain {
+  background-color: v.$lightColor;
+  border-radius: 10px;
   margin-bottom: 2rem;
+  padding: 1rem;
   width: 28%;
 
   &-picture-container {
@@ -27,5 +32,13 @@
   &-region {
     margin-bottom: 0.5rem;
     padding: 0 0.5rem;
+  }
+
+  &-google-map-container {
+    width: "100%";
+
+    &-map {
+      border-radius: 10px;
+    }
   }
 }
