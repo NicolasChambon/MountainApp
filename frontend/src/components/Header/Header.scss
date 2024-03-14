@@ -23,6 +23,10 @@
       font-size: 1.3rem;
       font-weight: 500;
       gap: 2rem;
+
+      .Header-nav-link--selected {
+        color: v.$middleColor;
+      }
     }
 
     &-section {

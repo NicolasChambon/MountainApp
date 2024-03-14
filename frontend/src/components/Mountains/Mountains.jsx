@@ -4,7 +4,7 @@ import Mountain from "../Mountain/Mountain";
 
 import "./Mountains.scss";
 
-function Mountains() {
+const Mountains = () => {
   const mountains = useSelector((state) => state.mountains);
   return (
     <div className="Mountains">
@@ -15,10 +15,12 @@ function Mountains() {
           title={mountain.name}
           region={mountain.region.name}
           country={mountain.country.name}
+          latitude={mountain.latitude}
+          longitude={mountain.longitude}
         />
       ))}
     </div>
   );
-}
+};
 
 export default Mountains;

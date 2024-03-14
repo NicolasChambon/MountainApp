@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import "./Mountain.scss";
 
-function Mountain({ imgLink, title, region, country }) {
+const Mountain = ({ imgLink, title, region, country }) => {
   return (
     <div className="Mountain">
       <div className="Mountain-picture-container">
@@ -17,7 +17,7 @@ function Mountain({ imgLink, title, region, country }) {
       <p className="Mountain-country">Country : {country}</p>
     </div>
   );
-}
+};
 
 Mountain.propTypes = {
   imgLink: PropTypes.string.isRequired,
