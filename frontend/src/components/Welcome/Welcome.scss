@@ -1,0 +1,18 @@
+.Welcome {
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+
+  .background-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .Welcome-logo {
+    position: absolute;
+    left: 39%;
+    top: 17%;
+    width: 23%;
+  }
+}

@@ -27,10 +27,9 @@ const Header = () => {
               Welcome
             </NavLink>
           </li>
-
           {sections.map((section) => {
             return (
-              <li className="Header-nav-section">
+              <li key={section} className="Header-nav-section">
                 <NavLink
                   className={({ isActive }) =>
                     isActive
@@ -44,27 +43,6 @@ const Header = () => {
               </li>
             );
           })}
-
-          {/* <li className="Header-nav-section">
-            <NavLink className="Header-nav-link" to="/faunas">
-              Faunas
-            </NavLink>
-          </li>
-          <li className="Header-nav-section">
-            <NavLink className="Header-nav-link" to="/floras">
-              Floras
-            </NavLink>
-          </li>
-          <li className="Header-nav-section">
-            <NavLink className="Header-nav-link" to="/regions">
-              Regions
-            </NavLink>
-          </li>
-          <li className="Header-nav-section">
-            <NavLink className="Header-nav-link" to="/map">
-              Map
-            </NavLink>
-          </li> */}
         </ul>
       </nav>
     </header>
