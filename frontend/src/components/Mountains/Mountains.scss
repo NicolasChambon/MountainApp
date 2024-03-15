@@ -1,7 +1,27 @@
+@use "../../styles/variables" as v;
+
 .Mountains {
+  align-items: center;
   display: flex;
-  flex-wrap: wrap;
-  gap: 4%;
-  justify-content: center;
+  flex-direction: column;
   padding-top: 6rem;
+
+  &-add-link {
+    background-color: v.$middleColor;
+    border-radius: 10px;
+    border: 2px v.$middleColor solid;
+    color: v.$darkColor;
+    display: flex;
+    gap: 1rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    padding: 1rem;
+  }
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4%;
+    justify-content: center;
+  }
 }

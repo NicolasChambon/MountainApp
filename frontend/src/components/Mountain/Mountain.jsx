@@ -12,7 +12,7 @@ const Mountain = ({ imgLink, title, region, country }) => {
           alt=""
         />
       </div>
-      <p className="Mountain-name">{title}</p>
+      <h2 className="Mountain-name">{title}</h2>
       <p className="Mountain-region">Region : {region}</p>
       <p className="Mountain-country">Country : {country}</p>
     </div>

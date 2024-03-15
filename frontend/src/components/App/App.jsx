@@ -7,6 +7,7 @@ import { fetchMountains } from "../../actions/actions";
 import Header from "../Header/Header";
 import Welcome from "../Welcome/Welcome";
 import Mountains from "../Mountains/Mountains";
+import AddMountain from "../AddMountain/AddMountain";
 
 import "./App.scss";
 
@@ -23,6 +24,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/mountains" element={<Mountains />} />
+        <Route path="/mountains/add" element={<AddMountain />} />
       </Routes>
     </div>
   );

@@ -1,0 +1,50 @@
+@use "../../styles/variables" as v;
+
+.AddMountain {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 6rem;
+
+  &-title {
+    background-color: v.$middleColor;
+    border: 2px v.$darkColor solid;
+    border-radius: 10px;
+    color: v.$darkColor;
+    display: flex;
+    gap: 1rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    padding: 1rem;
+  }
+
+  &-input {
+    // I would like that : when I enter the first letter in the input, the placeholder still appears in small font at the top of the input.
+
+    border: 2px v.$middleColor solid;
+    border-radius: 10px;
+    font-family: v.$mainFont;
+    height: 3rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 30%;
+
+    &:focus {
+      border-color: v.$darkColor;
+    }
+  }
+
+  &-input.url {
+    width: 70%;
+  }
+
+  & button {
+    background-color: v.$middleColor;
+    border: 2px v.$darkColor solid;
+    border-radius: 10px;
+    color: v.$darkColor;
+    font-family: v.$mainFont;
+    font-weight: 500;
+    padding: 0.5rem;
+  }
+}
