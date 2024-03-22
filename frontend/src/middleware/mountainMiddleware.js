@@ -2,6 +2,7 @@ import {
   FETCH_MOUNTAINS,
   fetchMountainsSuccess,
   ADD_MOUNTAIN,
+  fetchMountains,
 } from "../actions/mountainActions";
 
 const mountainMiddleware = (store) => (next) => (action) => {
@@ -38,7 +39,8 @@ const mountainMiddleware = (store) => (next) => (action) => {
           return response.json();
         })
         .then(() => {
-          // store.dispatch(fetchMountains());
+          store.dispatch(fetchMountains());
+          action.navigate("/Mountains");
         })
         .catch((error) => {
           console.error("There was an error with your fetch operation:", error);

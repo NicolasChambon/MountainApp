@@ -11,7 +11,8 @@ export const fetchMountainsSuccess = (mountains) => ({
   mountains,
 });
 
-export const addMountain = (mountain) => ({
+export const addMountain = (mountain, navigate) => ({
   type: ADD_MOUNTAIN,
   mountain,
+  navigate,
 });

@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import { useSelector, useDispatch } from "react-redux";
 import { FaMountain } from "react-icons/fa6";
 
@@ -10,21 +12,26 @@ const AddMountain = () => {
 
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   return (
     <form
       className="AddMountain"
       onSubmit={(e) => {
         e.preventDefault();
         dispatch(
-          addMountain({
-            name: e.target.name.value,
-            latitude: e.target.latitude.value,
-            longitude: e.target.longitude.value,
-            altitude: e.target.altitude.value,
-            regionId: e.target.region.value,
-            countryId: e.target.country.value,
-            picture: e.target.picture.value,
-          })
+          addMountain(
+            {
+              name: e.target.name.value,
+              latitude: e.target.latitude.value,
+              longitude: e.target.longitude.value,
+              altitude: e.target.altitude.value,
+              regionId: e.target.region.value,
+              countryId: e.target.country.value,
+              picture: e.target.picture.value,
+            },
+            navigate
+          )
         );
       }}
     >
