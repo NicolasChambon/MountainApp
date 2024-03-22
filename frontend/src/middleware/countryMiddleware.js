@@ -1,17 +1,20 @@
-import { FETCH_MOUNTAINS, fetchMountainsSuccess } from "../actions/actions";
+import {
+  FETCH_COUNTRIES,
+  fetchCountriesSuccess,
+} from "../actions/countryActions";
 
-const middleware = (store) => (next) => (action) => {
+const countryMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case FETCH_MOUNTAINS: {
-      fetch("http://localhost:5000/api/mountains")
+    case FETCH_COUNTRIES: {
+      fetch("http://localhost:5000/api/countries")
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
           return response.json();
         })
-        .then((mountains) => {
-          store.dispatch(fetchMountainsSuccess(mountains));
+        .then((countries) => {
+          store.dispatch(fetchCountriesSuccess(countries));
         })
         .catch((error) => {
           console.error("There was an error with your fetch operation:", error);
@@ -24,4 +27,4 @@ const middleware = (store) => (next) => (action) => {
   return next(action);
 };
 
-export default middleware;
+export default countryMiddleware;

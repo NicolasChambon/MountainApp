@@ -1,10 +1,10 @@
-import { FETCH_MOUNTAINS_SUCCESS } from "../actions/actions";
+import { FETCH_MOUNTAINS_SUCCESS } from "../actions/mountainActions";
 
 export const initialState = {
   mountains: [],
 };
 
-const reducer = (state = initialState, action = {}) => {
+const mountainReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case FETCH_MOUNTAINS_SUCCESS:
       return {
@@ -16,4 +16,4 @@ const reducer = (state = initialState, action = {}) => {
   }
 };
 
-export default reducer;
+export default mountainReducer;

@@ -19,8 +19,6 @@
   }
 
   &-input {
-    // I would like that : when I enter the first letter in the input, the placeholder still appears in small font at the top of the input.
-
     border: 2px v.$middleColor solid;
     border-radius: 10px;
     font-family: v.$mainFont;

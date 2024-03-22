@@ -2,7 +2,9 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 
-import { fetchMountains } from "../../actions/actions";
+import { fetchMountains } from "../../actions/mountainActions";
+import { fetchRegions } from "../../actions/regionActions";
+import { fetchCountries } from "../../actions/countryActions";
 
 import Header from "../Header/Header";
 import Welcome from "../Welcome/Welcome";
@@ -16,6 +18,8 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchMountains());
+    dispatch(fetchRegions());
+    dispatch(fetchCountries());
   }, []);
 
   return (

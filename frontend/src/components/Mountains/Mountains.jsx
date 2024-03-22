@@ -7,7 +7,7 @@ import Mountain from "../Mountain/Mountain";
 import "./Mountains.scss";
 
 const Mountains = () => {
-  const mountains = useSelector((state) => state.mountains);
+  const mountains = useSelector((state) => state.mountain.mountains);
   return (
     <div className="Mountains">
       <Link className="Mountains-add-link" to="add">
