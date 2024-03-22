@@ -1,14 +1,33 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { FaMountain } from "react-icons/fa6";
 
 import "./AddMountain.scss";
+import { addMountain } from "../../actions/mountainActions";
 
 const AddMountain = () => {
   const regions = useSelector((state) => state.region.regions);
   const countries = useSelector((state) => state.country.countries);
 
+  const dispatch = useDispatch();
+
   return (
-    <form className="AddMountain">
+    <form
+      className="AddMountain"
+      onSubmit={(e) => {
+        e.preventDefault();
+        dispatch(
+          addMountain({
+            name: e.target.name.value,
+            latitude: e.target.latitude.value,
+            longitude: e.target.longitude.value,
+            altitude: e.target.altitude.value,
+            regionId: e.target.region.value,
+            countryId: e.target.country.value,
+            picture: e.target.picture.value,
+          })
+        );
+      }}
+    >
       <h2 className="AddMountain-title">
         Add a mountain <FaMountain className="add-logo" />
       </h2>
@@ -20,8 +39,13 @@ const AddMountain = () => {
         className="AddMountain-input"
         required
       />
-      <select className="AddMountain-input" name="region" id="region">
-        <option value="" disabled selected>
+      <select
+        className="AddMountain-input"
+        name="region"
+        id="region"
+        defaultValue=""
+      >
+        <option value="" disabled>
           Regions
         </option>
         {regions.map((region) => (
@@ -30,8 +54,13 @@ const AddMountain = () => {
           </option>
         ))}
       </select>
-      <select className="AddMountain-input" name="country" id="country">
-        <option value="" disabled selected>
+      <select
+        className="AddMountain-input"
+        name="country"
+        id="country"
+        defaultValue=""
+      >
+        <option value="" disabled>
           Countries
         </option>
         {countries.map((country) => (

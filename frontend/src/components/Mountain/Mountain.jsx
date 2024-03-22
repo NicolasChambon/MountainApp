@@ -6,11 +6,7 @@ const Mountain = ({ imgLink, title, region, country }) => {
   return (
     <div className="Mountain">
       <div className="Mountain-picture-container">
-        <img
-          className="Mountain-picture"
-          src={`https://upload.wikimedia.org/wikipedia/commons/thumb/${imgLink}`}
-          alt=""
-        />
+        <img className="Mountain-picture" src={imgLink} alt="" />
       </div>
       <h2 className="Mountain-name">{title}</h2>
       <p className="Mountain-region">Region : {region}</p>

@@ -1,0 +1,15 @@
+POST http://localhost:5000/api/mountains HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Mount Toto",
+    "picture": "f/f0/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006_edit_1.jpg/1280px-Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006_edit_1.jpg",
+    "latitude": "27.988100",
+    "longitude": "86.925000",
+    "altitude": 8848,
+    "typeId": 1,
+    "countryId": 1,
+    "regionId": 1,
+    "countryId": 1,
+    "region": 1
+}
