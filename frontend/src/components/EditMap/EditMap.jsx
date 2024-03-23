@@ -1,10 +1,16 @@
 import { MapContainer, TileLayer, useMapEvent } from "react-leaflet";
+import { useDispatch } from "react-redux";
+
+import { clickMapCoordinates } from "../../actions/mountainActions";
 
 import "leaflet/dist/leaflet.css";
 
 function HandleMapClick() {
+  const dispatch = useDispatch();
+
   useMapEvent("click", (e) => {
     console.log(e.latlng);
+    dispatch(clickMapCoordinates(e.latlng));
   });
 }
 

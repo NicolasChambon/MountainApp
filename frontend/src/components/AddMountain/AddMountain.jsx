@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { MapContainer, TileLayer } from "react-leaflet";
 import { FaMountain } from "react-icons/fa6";
 
 import "./AddMountain.scss";
