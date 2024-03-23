@@ -3,6 +3,7 @@ import {
   fetchMountainsSuccess,
   ADD_MOUNTAIN,
   fetchMountains,
+  clickMapCoordinates,
 } from "../actions/mountainActions";
 
 const mountainMiddleware = (store) => (next) => (action) => {
@@ -40,6 +41,7 @@ const mountainMiddleware = (store) => (next) => (action) => {
         })
         .then(() => {
           store.dispatch(fetchMountains());
+          store.dispatch(clickMapCoordinates({ lat: 0, lng: 0 }));
           action.navigate("/Mountains");
         })
         .catch((error) => {

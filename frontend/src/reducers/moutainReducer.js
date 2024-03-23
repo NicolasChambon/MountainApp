@@ -5,7 +5,7 @@ import {
 
 export const initialState = {
   mountains: [],
-  clickedCoordinates: {},
+  clickedCoordinates: { lat: 0, lng: 0 },
 };
 
 const mountainReducer = (state = initialState, action = {}) => {
