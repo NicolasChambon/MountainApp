@@ -21,7 +21,6 @@ function HandleMapClick() {
 
 export const EditMap = () => {
   const coordinates = useSelector((state) => state.mountain.clickedCoordinates);
-  console.log(coordinates);
   return (
     <MapContainer
       center={[10, 10]}

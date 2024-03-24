@@ -11,6 +11,9 @@ import { addMountain } from "../../actions/mountainActions";
 const AddMountain = () => {
   const regions = useSelector((state) => state.region.regions);
   const countries = useSelector((state) => state.country.countries);
+  const coordinates = useSelector(
+    (state) => state.mountain?.clickedCoordinates
+  );
 
   const dispatch = useDispatch();
 
@@ -25,8 +28,8 @@ const AddMountain = () => {
           addMountain(
             {
               name: e.target.name.value,
-              latitude: e.target.latitude.value,
-              longitude: e.target.longitude.value,
+              latitude: coordinates.lat,
+              longitude: coordinates.lng,
               altitude: e.target.altitude.value,
               regionId: e.target.region.value,
               countryId: e.target.country.value,
@@ -78,24 +81,6 @@ const AddMountain = () => {
           </option>
         ))}
       </select>
-      <input
-        type="number"
-        step="0.000001"
-        id="latitude"
-        name="latitude"
-        placeholder="Latitude"
-        className="AddMountain-input"
-        required
-      />
-      <input
-        type="number"
-        step="0.000001"
-        id="longitude"
-        name="longitude"
-        placeholder="Longitude"
-        className="AddMountain-input"
-        required
-      />
       <EditMap />
       <input
         type="number"

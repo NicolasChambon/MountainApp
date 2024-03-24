@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className="Header">
       <nav className="Header-nav">
-        <Link>
+        <Link to="/">
           <img
             className="Header-nav-logo"
             src="../../../public/mountain-app-logo.png"
