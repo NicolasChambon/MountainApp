@@ -10,6 +10,9 @@ const Region = db.define(
     name: {
       type: DataTypes.STRING,
     },
+    picture: {
+      type: DataTypes.TEXT,
+    },
   },
   {
     freezeTableName: true,
