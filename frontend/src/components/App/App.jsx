@@ -10,6 +10,7 @@ import Header from "../Header/Header";
 import Welcome from "../Welcome/Welcome";
 import Mountains from "../Mountains/Mountains";
 import AddMountain from "../AddMountain/AddMountain";
+import Regions from "../Regions/Regions";
 
 import "./App.scss";
 
@@ -27,8 +28,9 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Welcome />} />
-        <Route path="/mountains" element={<Mountains />} />
-        <Route path="/mountains/add" element={<AddMountain />} />
+        <Route path="/Mountains" element={<Mountains />} />
+        <Route path="/Mountains/add" element={<AddMountain />} />
+        <Route path="/Regions" element={<Regions />} />
       </Routes>
     </div>
   );

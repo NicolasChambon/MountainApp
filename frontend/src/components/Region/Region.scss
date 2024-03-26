@@ -1,0 +1,30 @@
+@use "../../styles/variables" as v;
+
+.Region {
+  background-color: v.$lightColor;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  width: 28%;
+
+  &-picture-container {
+    height: 15rem;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    width: 100%;
+
+    .Region-picture {
+      border-radius: 7px 7px 0 0;
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  &-name {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+}
